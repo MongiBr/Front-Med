@@ -50,7 +50,7 @@ function StudyListRoute(props) {
   });
 
 
-  
+
 
   const [studies, setStudies] = useState([]);
   const [studies2, setStudies2] = useState([]);
@@ -59,7 +59,7 @@ function StudyListRoute(props) {
     error: null,
   });
   const [activeModalId, setActiveModalId] = useState(null);
-  const [rowsPerPage, setRowsPerPage] = useState(25);
+  const [rowsPerPage, setRowsPerPage] = useState(50);
   const [pageNumber, setPageNumber] = useState(0);
   const appContext = useContext(AppContext);
   // ~~ RESPONSIVE
@@ -113,7 +113,7 @@ function StudyListRoute(props) {
           );
 
           setStudies(response);
-          
+
           setSearchStatus({ error: null, isSearchingForStudies: false });
         } catch (error) {
           console.warn(error);
@@ -154,7 +154,7 @@ function StudyListRoute(props) {
       setSearchStatus({ isSearchingForStudies: false, error });
     }
   };
-  
+
   console.log('studies  ::' ,studies);
   if (searchStatus.error) {
     return <div>Error: {JSON.stringify(searchStatus.error)}</div>;
@@ -261,7 +261,7 @@ function StudyListRoute(props) {
             const viewerPath = `/viewer/${studyInstanceUID}`;
             history.push(viewerPath);
           }}
-          
+
           onSelectItem={studyInstanceUID => {
             const viewerPath = RoutesUtil.parseViewerPath(appConfig, server, {
               studyInstanceUIDs: studyInstanceUID,

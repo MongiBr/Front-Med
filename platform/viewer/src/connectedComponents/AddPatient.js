@@ -15,15 +15,17 @@ class AddPatient extends Component {
    fileInput=React.createRef();
 
   state = {
-      
+
       imageList:null,
-      buffer:null
-      
+      taille:'Choose a Dicom Files',
+      messageSucces:null,
+      messageAdded:null
+
     };
 
-   
-        
-  
+
+
+
 
  getBase64 = file => {
     return new Promise(resolve => {
@@ -38,7 +40,7 @@ class AddPatient extends Component {
       // on reader load somthing...
       reader.onload = () => {
         // Make a fileInfo Object
-       
+
         baseURL = reader.result;
         console.log(baseURL);
         resolve(baseURL);
@@ -46,46 +48,50 @@ class AddPatient extends Component {
       console.log(fileInfo);
     });
   };
- 
+
 handleChangeFile =e =>{
 
- 
+
      const files=e.target.files;
-   
-    
+
+
       this.setState({
-    
-     imageList: files
+
+     imageList: files,
+     taille:files.length + ' files added'
  });
 
-    
 
-  
+
+
 }
 
     handleSubmit =   event=> {
         event.preventDefault()
-        
+
         const formData= new FormData();
         for (let i = 0; i < this.state.imageList.length; i++) {
         formData.append(`files[${i}]`,this.state.imageList[i])
         }
-        
+
         console.log('files : ', this.state.imageList)
         axios.post('http://localhost:5985/studies',formData, {
           headers:{
             'Content-Type':'multipart/form-data; type=application/dicom; boundary=--594b1491-fdae-4585-9b48-4d7cd999edb3',
             'Content-Length':this.state.imageList
-            
+
           }
         })
-        
+
         .then((res)=> {
 
-           console.log('res',res.data);
 
-          });
-   
+            this.setState({
+              messageSucces:res.data,
+
+            })
+         } );
+
  }
 
     handleChange= (event)=> {
@@ -97,7 +103,7 @@ handleChangeFile =e =>{
     render() {
         return <div className="container " >
          <div className='card-patient th '>
-            
+
             <div className='column'>
                <div className='color image-list'>
             <div className='imgitems'>
@@ -106,7 +112,7 @@ handleChangeFile =e =>{
               </div>
             </div>
           <div className='column'>
-           
+
             <div className="card-items">
         <div className="block">
             <div className="input-t">
@@ -118,9 +124,9 @@ handleChangeFile =e =>{
                 <input type="text" className="form__field" placeholder="Patient Name" name="nom" onChange={this. handleChange}></input>
 
 
-            
+
              <textarea  className="form__field" placeholder="Description " name="description" onChange={this. handleChange}></textarea>
-     
+
      <input type='file' onChange={this. handleChangeFile} ref={this.fileInput} style={{ display: 'none' }} multiple></input>
      <div>
      <button
@@ -128,17 +134,17 @@ handleChangeFile =e =>{
   onClick={() => this.fileInput.current.click()}
 >Choose File</button>
 
-       {/*this.state.imageList.length ? (<div className='files'>
-            {this.state.imageList.length} files added
-    </div>) : (null)*/}
+       {this.state.taille='Choose a Dicom files' ? (<div className='files'>
+            {this.state.taille}
+    </div>) : (<div className='files'> {this.state.taille }</div>)}
 </div>
       </div>
-      
-     {/*this.state.messageSucces ? (<div className='succes'>
-            {this.state.messageSucces}
-    </div>) : (this.state.messageError ? (<div className='error'>
-            {this.state.messageError}
-  </div>) : (null))*/}
+
+     {this.state.messageSucces ? (<div className='succes'>
+            Patient added successfully
+    </div>) : (<div className='error'>
+            Please check your data
+  </div>)}
               <div className="hrl"></div>
              <div className="footer-login ">
 
@@ -149,10 +155,10 @@ handleChangeFile =e =>{
 
              </div>
 
-       
 
-            
-             
+
+
+
              </div>
              </div>
              </div>

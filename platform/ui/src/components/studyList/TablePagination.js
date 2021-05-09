@@ -6,7 +6,7 @@ import { withTranslation } from '../../contextProviders';
 class TablePagination extends PureComponent {
   static defaultProps = {
     pageOptions: [5, 10, 25, 50, 100],
-    rowsPerPage: 25,
+    rowsPerPage: 50,
     currentPage: 0,
   };
 
@@ -70,7 +70,7 @@ class TablePagination extends PureComponent {
   renderRowsPerPageDropdown() {
     return (
       <div className="form-inline form-group rows-per-page">
-        
+
         <select
           onChange={this.onRowsPerPageChange}
           defaultValue={this.props.rowsPerPage}
