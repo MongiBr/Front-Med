@@ -62,7 +62,7 @@ function Header(props) {
 
   return (
     <>
-      <div className="notification-bar">{t('INVESTIGATIONAL USE ONLY')}</div>
+
       <div
         className={classNames('entry-heade')}
       >
@@ -75,11 +75,11 @@ function Header(props) {
         </div>
 
         <div className="header-menu">
-          <span className="research-use">{t('INVESTIGATIONAL USE ONLY')}</span>
+
         <NavLink to='/studylist' activeClassName="active" > <span className="research-use"> Home</span></NavLink>
           <NavLink to='/local'  activeClassName="active" ><span className="research-use">Local</span></NavLink>
           {options.map(op=>(<span className="research-use" onClick={op.onClick} >{op.icon.name=='user'?(<Icon name={op.icon.name}/>):(null)} {op.title}</span>))}
-      
+
        <Route render={({ history}) => (
            <button className='btn-study'onClick={() => { history.push('/add-patient') }} ><Icon className='icon' name='plus' />Patient</button>
            )} />
