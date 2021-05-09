@@ -63,7 +63,7 @@ function StudyList(props) {
   const mediumTableMeta = [
     {
       displayText: t('MRN'),
-      fieldName: 'PatientID',
+      fieldName: 'PatientName',
       inputType: 'text',
       size: 378,
     },
@@ -127,11 +127,15 @@ const getBase64ImageFromUrl = async (imageUrl) => {
          <div className='l-btn'>
           <div className="long">
 
-          <div className='titreDicom' >We have a dicom data of {long} patients </div>
-          </div>
-          <div className='input-align'>
+          <div className='titreDicom' >Dicom Library of {long} patients </div>
 
+          </div>
+          <span className='text-dicom'>Test MedZone DICOM Viewer in medical information system</span>
+          <div className='input-align'>
+          <div className='search-box'>
+            <span className='span-search'> Dicom</span>
           <TableSearchFilter
+
             meta={tableMeta}
             values={filterValues}
             onSort={handleSort}
@@ -140,8 +144,8 @@ const getBase64ImageFromUrl = async (imageUrl) => {
             sortDirection={sort.direction}
             studyListDateFilterNumDays={studyListDateFilterNumDays}
           />
-
-
+          <button className='btn-search'><Icon name='search-plus' className='icon-search'/> Search</button>
+          </div>
 
            </div>
 
@@ -149,7 +153,7 @@ const getBase64ImageFromUrl = async (imageUrl) => {
         </div>
 
       </div>
-      <div className='hr'></div>
+
       <div className="card" data-cy="study-list-results">
         {/* I'm not in love with this approach, but it's the quickest way for now
          *

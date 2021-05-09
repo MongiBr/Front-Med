@@ -82,7 +82,7 @@ function TableSearchFilter(props) {
         const sortIcon = isSortField ? sortIconForSortField : sortIcons[0];
 
         return (
-          <div key={`${fieldName}-${i}`} style={{display:'inline-block'}}>
+          <div key={`${fieldName}-${i}`} >
             {/*<label
               htmlFor={`filter-${fieldName}`}
               onClick={() => onSort(fieldName)}
@@ -91,12 +91,12 @@ function TableSearchFilter(props) {
               <Icon name={sortIcon} style={{ fontSize: '12px' }} />
             </label>*/}
             {inputType === 'text' && (
-             <div className='input-align'>
+             <div className=''>
              <input
-                type="text"
-                placeholder='Search a patient'
+                type="search"
+                placeholder='Search a Dicom from here'
                 id={`filter-${fieldName}`}
-                className="form__field"
+                className="search-zone"
                 value={values[fieldName]}
                 onChange={e => onValueChange(fieldName, e.target.value)}
               />

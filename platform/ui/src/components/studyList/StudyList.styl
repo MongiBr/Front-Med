@@ -142,7 +142,11 @@ placeholder-color(c)
 
 
   .titreDicom
-    font-weight: bold
+    font-size: 46px;
+    color: rgb(13, 17, 54);
+    font-weight: 700;
+    margin-bottom: 15px;
+    text-align: center;
 
   .study-text
     font-weight: bold
@@ -160,9 +164,9 @@ placeholder-color(c)
     border-bottom-left-radius: 35px
 
     border-top-right-radius: 5px
-    background-color: #a10d0d
+    background-color: #b55c95
     color: #fff
-    border : 2px solid #a10d0d
+    border : 2px solid #b55c95
     font-weight: bold
     cursor pointer
 
@@ -193,6 +197,20 @@ placeholder-color(c)
 
 
 
+
+  .span-search
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 38px;
+    padding-left: 15px;
+    padding-right: 15px;
+    color: rgb(0, 158, 127);
+    background-color: rgb(247, 247, 247);
+    border-radius: 6px;
+    margin: 5px;
+    white-space: nowrap;
+    text-transform: capitalize;
+
   .footer-card
     position: absolute
     bottom: 0px;
@@ -206,6 +224,58 @@ placeholder-color(c)
     border-bottom-right-radius: 7px;
 
 
+  .search-zone
+    -webkit-box-flex: 1;
+    flex-grow: 1;
+    font-size: 15px;
+    padding-right: 20px;
+    height: 48px;
+    color: rgb(119, 121, 140);
+    background-color: inherit;
+    appearance: none;
+    border: 0px;
+    width:500px
+    outline: none
+
+
+.text-dicom
+    font-size: 15px;
+    color: rgb(119, 121, 140);
+    display: block;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: center;
+    margin-bottom: 60px;
+
+.search-box
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    border-radius: 6px;
+    overflow: hidden;
+    width: 700px;
+    color: rgb(119, 121, 140);
+    background-color: rgb(255, 255, 255);
+    border-width: 0px;
+    border-style: solid;
+    border-color: rgb(255, 255, 255);
+    box-shadow: #e1e1e1 0px 1px 20px;
+
+.btn-search
+    background-color: rgb(0, 158, 127);
+    color: rgb(255, 255, 255);
+    font-size: 15px;
+    font-weight: 700;
+    display: flex;
+    height: 48px;
+    -webkit-box-align: center;
+    align-items: center;
+    border: 0px;
+    outline: 0px;
+    padding-left: 30px;
+    padding-right: 30px;
+    cursor: pointer;
+    flex-shrink: 0;
 
   .imgc
     object-fit: cover;
@@ -217,6 +287,8 @@ placeholder-color(c)
   .alignIcon:hover
     font-size: 32px
 
+.icon-search
+    margin-right: 10px
 
   .txt
     font-weight: 300
@@ -241,9 +313,9 @@ placeholder-color(c)
 
 
   .delete-btn:hover
-    background-color: #a10d0d
+    background-color: #b55c95
     color: #fff
-    border : 2px solid #a10d0d
+    border : 2px solid #b55c95
     width: 70px
     height: 70px
     border-bottom-left-radius: 60px
@@ -311,7 +383,7 @@ placeholder-color(c)
   color:#2F2F2F
   font-size: 56px
 
-  margin-bottom: 40px
+
   display: flex
   align-items: center
   justify-content: center
@@ -374,7 +446,7 @@ placeholder-color(c)
 
 .l-btn
   display: block
-  margin-top: -90px
+  margin-top: -200px
 
 
 
@@ -389,8 +461,8 @@ placeholder-color(c)
   padding-right: 5rem
   flex-wrap: wrap;
   background-repeat: no-repeat;
-  background-size: 100% 900px;
-  height: 800px;
+  background-size: 100% 800px;
+  height: 700px;
   width:100%
 
 .filter
