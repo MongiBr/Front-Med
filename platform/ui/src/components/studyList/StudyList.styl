@@ -1,0 +1,498 @@
+@import './../../design/styles/common/form.styl'
+@import './../../design/styles/common/global.styl'
+
+$study-list-padding = 8%;
+$study-list-toolbar-height = 75px;
+$body-cell-height = 40px;
+$body-cell-top-bottom-padding = 16px;
+
+$tablePaddingMediumScreen = 5px
+$tablePaddingBigScreen = 3%
+$tablePaddingLargeScreen = 5%
+
+// TODO: move this to a common mixin files
+placeholder-color(c)
+  &::-webkit-input-placeholder
+    color: c
+  &:-moz-placeholder
+    color: c
+  &::-moz-placeholder
+    color: c
+  &:-ms-input-placeholder
+    color: c
+
+.description
+  display: flex
+  justify-content: center
+  margin-top:8px
+
+.study-list-header
+  .addNewStudy
+    margin: 0 10px
+
+    label
+      font-weight: 400
+      cursor: pointer
+      display: inline-block;
+      max-width: 100%;
+      margin-bottom: 5px;
+
+    input
+      width: 0.1px;
+      height: 0.1px
+      opacity: 0
+      overflow: hidden
+      position: absolute
+      z-index: -1
+
+    color: var(--text-secondary-color)
+
+    &:hover
+      color: var(--hover-color)
+
+    &:active
+      color: var(--active-color)
+
+.study-list-header
+  display: flex;
+  justify-content: space-between;
+  background-color:  #F0F2F5
+  height: $study-list-toolbar-height
+  margin-bottom: 2px
+  padding: 0 $study-list-padding
+  line-height: $study-list-toolbar-height
+
+  .header
+    font-size: 22px
+    font-weight: 300
+    color: var(--table-text-secondary-color)
+    line-height: $study-list-toolbar-height
+
+  .actions
+    display: flex;
+
+  .study-count
+    color: var(--large-numbers-color)
+    font-size: 40px
+    font-weight: 100
+    line-height: $study-list-toolbar-height
+
+.table-head
+  margin-top:70px;
+
+
+/*
+ * Dark gray background with blue border
+ * Spans width of page to create a distinct area for table filters
+ */
+.table-head-background
+  height: 121px
+  position: absolute
+  width: 100%
+
+  &:before, &:after
+    content: ''
+    display: block
+    left: 0
+    position: absolute
+    width: 100%
+
+  &:before
+    background-color:  #F0F2F5
+    height: 100%
+    top: 0
+    z-index: 1
+
+  &:after
+    background-color: var(--ui-border-color-active)
+    bottom: -1px
+    height: 1px
+    z-index: 2
+
+
+.study-list-container
+
+
+
+  width: 100%
+
+  position: absolute
+  z-index: 2
+
+ .table
+  width: 100%;
+  margin-bottom: 20px;
+  border-spacing: 0;
+  border-collapse: collapse;
+  table-layout: fixed;
+  color: #000
+
+
+
+  .card
+
+    padding: 0.6rem
+    padding-top: 2.5rem
+    display: flex
+    flex-wrap: wrap;
+    justify-content: center
+    align-items: center
+    background-color: #fefefe
+    box-shadow: 2px 2px 4px 0 rgba(0,0,0,.2);
+
+
+  .titreDicom
+    font-weight: bold
+
+  .study-text
+    font-weight: bold
+    font-size: 18px
+    text-align : left
+
+
+  .delete-btn
+
+    position: absolute
+    top: 0px;
+    right:0px
+    width: 40px
+    height: 40px
+    border-bottom-left-radius: 35px
+
+    border-top-right-radius: 5px
+    background-color: #a10d0d
+    color: #fff
+    border : 2px solid #a10d0d
+    font-weight: bold
+    cursor pointer
+
+
+
+
+
+  .alignIcon
+    margin-right: 140px
+
+  .card-body
+    border-radius: 7px;
+    position relative
+    cursor :pointer
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    background-color: #fff;
+    margin : 15px;
+    width:260px;
+    height: 390px;
+
+    display: grid;
+    grid-template-rows: max-content 200px 1fr;
+
+  .date
+    margin-top: auto
+  text-align: center
+
+
+
+  .footer-card
+    position: absolute
+    bottom: 0px;
+    left:0px
+    width: 260px
+    height: 50px
+    border-top: 1px solid #ededeb;
+    justify-content: space-between
+    background-color: #fcfcfc
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
+
+
+
+  .imgc
+    object-fit: cover;
+    width: 100%;
+    height: 220px;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+
+  .alignIcon:hover
+    font-size: 32px
+
+
+  .txt
+    font-weight: 300
+    margin-bottom: 5px
+
+  .left-text
+    text-align: left
+    margin-top: 10px
+
+  .card-body:hover
+    box-shadow: 0 12px 18px 0 rgba(0,0,0,0.2);
+
+
+  .show
+    color : #111
+    background-color: #fcfcfc
+    border : none
+    border-radius: 30px
+    cursor: pointer
+    font-weight: 400
+
+
+
+  .delete-btn:hover
+    background-color: #a10d0d
+    color: #fff
+    border : 2px solid #a10d0d
+    width: 70px
+    height: 70px
+    border-bottom-left-radius: 60px
+    font-size: 18px
+    transition: 0.3s
+
+  > tbody
+    display: inline;
+    flex-wrap: wrap;
+    width : 200px;
+
+  .showDiv
+    display: flex
+    justify-content: space-between
+    padding: 1rem
+    font-weight: 300
+
+  > tbody tr
+    padding: 5px
+
+    background-color: #fff
+
+  .user-study
+    position: absolute
+    top: 198px;
+    left:17px
+
+
+
+  .user
+     border-radius:50%;
+
+
+  > tbody td
+    padding: $body-cell-top-bottom-padding 8px;
+    height: $body-cell-height
+    word-wrap: break-word;
+    display: block;
+
+  /* Striped Variant */
+  &.table--striped > tbody tr:nth-child(even)
+    background-color:  #F0F2F5
+
+
+  /* Hover Variant */
+  &.table--hoverable > tbody tr
+    &:hover, &:active, &.active
+      background-color: var(--table-hover-color)
+    &.no-hover
+      &:hover, &:active, &.active
+        background-color:  #F0F2F5
+
+  .empty-value
+    color: var(--ui-gray-light)
+
+.study-list-container > table.table > tr
+  height: 20px
+
+.hr
+
+  border : 0.00000001px solid #BEBEBE;
+
+
+.long
+  color:#2F2F2F
+  font-size: 56px
+
+  margin-bottom: 40px
+  display: flex
+  align-items: center
+  justify-content: center
+
+
+ .icon
+    margin-right: 13px
+    font-size: 15px
+    font-weight: bold
+
+
+.btn-study
+  margin-left: 10px
+  margin-top: -5px
+  width: 120px;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  font-size: 20px;
+  border-radius: 5px;
+  color: #474747;
+  background-color: #fff;
+  border: 2px solid #474747;
+  cursor: pointer;
+
+
+.btn-study:hover
+  color: #fff;
+  background-color: #474747;
+  border: 2px solid #474747;
+
+
+
+.align-t
+
+  padding: 1rem
+
+.form__field:focus {
+  outline: none;
+  border: 1px solid #46ab9c;
+  box-shadow: 0 0 2px #46ab9c;
+}
+
+.input-align
+  display:flex
+  align-items: center
+  margin-top: 5px
+  justify-content: center
+
+.form__field {
+
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.7rem;
+  padding-bottom: 0.7rem;
+  margin-bottom: 10px;
+  border-radius: 0.3rem;
+  border: 1px solid #bebebe;
+
+}
+
+.l-btn
+  display: block
+  margin-top: -90px
+
+
+
+.align-head
+  display: flex
+  justify-content: center
+  align-items: center
+
+
+  padding:13px
+  padding-left: 5rem
+  padding-right: 5rem
+  flex-wrap: wrap;
+  background-repeat: no-repeat;
+  background-size: 100% 900px;
+  height: 800px;
+  width:100%
+
+.filter
+
+  display: flex
+  flex-wrap: wrap
+  justify-content: center
+
+
+.study-list-container > div.table > thead
+  ::-webkit-datetime-edit-year-field:not([aria-valuenow]),
+  ::-webkit-datetime-edit-month-field:not([aria-valuenow]),
+  ::-webkit-datetime-edit-day-field:not([aria-valuenow])
+    color: transparent
+
+.study-list-container > div.table > thead > tr > th
+  padding: 0;
+  border-bottom: 1px solid var(--ui-border-color-active);
+  width: 100%;
+  text-align: left;
+  border-top: 0;
+
+.study-list-container > div.table > thead > tr > th.StudyDate
+  min-width: 230px
+.study-list-container > table.table .modalities
+  font-weight: 500;
+  min-height: 20px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+
+.study-list-container
+  .filters
+    label
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      width: 100%;
+      min-width: 95px;
+      margin: 0 auto;
+      color: #000
+      font-weight: 400;
+      padding: 20px 8px;
+      user-select: none;
+      font-size: 15px;
+
+      &:hover
+        color: var(--active-color);
+
+      &.active, &:active
+        color: var(--active-color);
+    i
+      margin: 0 5px;
+
+  input
+    height: 50px
+
+    padding: 0 20px
+
+    width :600px;
+    font-size: 10pt
+    font-weight: normal
+    border-radius: 50px
+    /* Just use padding? */
+
+
+  .search-div
+    display block
+    height: 45px
+
+    padding: 0 20px
+
+    width :630px;
+    font-size: 10pt
+    font-weight: normal
+    border-radius: 50px
+
+
+    &:active, &:hover
+      background-color: #fff
+
+  .loading-text
+    color: var(--table-text-secondary-color)
+    text-align: center;
+    font-size: 30px
+
+  .notFound
+    color: var(--table-text-secondary-color)
+    font-size: 30px
+    font-weight: 200
+    text-align: center
+
+
+
+  @media only screen and (max-width: 999px)
+
+      .card-body
+
+         margin : 2px;
+         margin-bottom: 20px;
+
+      .align-head
+        display:flex
+          justify-content: center
+         padding: 1rem

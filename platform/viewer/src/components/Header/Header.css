@@ -1,0 +1,183 @@
+/* Viewer Route */
+
+.entry-heade {
+  padding: 10px 15px;
+  height: 70px;
+  width: 100%;
+  background-color: #fff;
+  z-index: 3;
+  box-shadow: 0 2px 2px -2px rgba(0, 0, 0, .2);
+  padding-left: 8.5rem;
+  padding-right: 7.5rem;
+  position: fixed;
+  top: 0px;
+}
+
+.header-left-box {
+  display: inline-block;
+  position: relative;
+}
+
+.header-brand {
+  text-decoration: none;
+  height: 30px;
+  float: left;
+  clear: both;
+}
+
+/* Home Page */
+
+.entry-header.header-big {
+  background: rgba(21, 25, 30, 0.7);
+  padding: 35px var(--study-list-padding);
+  height: auto;
+  display: inline-block;
+  width: 100%;
+}
+
+.entry-header.header-big .header-brand {
+  height: 50px;
+  padding: 0;
+}
+
+.entry-header.header-big .header-logo-image {
+  margin-right: 20px;
+  width: 50px;
+  height: 50px;
+}
+
+.entry-header.header-big .header-logo-text {
+  width: 474px;
+  height: auto;
+}
+
+/** OTHER STYLES **/
+
+.dd-item {
+  width: 100%;
+}
+
+.header-viewerLink {
+  float: left;
+}
+
+.header-logo-image {
+  fill: transparent;
+  height: 100%;
+  margin: 0 8px 0 0;
+  width: 30px;
+  float: left;
+}
+
+.header-btn {
+  color: var(--text-secondary-color);
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 26px;
+}
+
+.header-btn:hover {
+  color: var(--hover-color);
+}
+
+.logo {
+  color: #111;
+  font-size: 26px;
+  font-weight: bold;
+  text-align: center;
+  display: flex;
+  align-items: center;
+}
+
+.header-btn:active {
+  color: var(--active-color);
+}
+
+.header-studyListLinkSection {
+  border-left: var(--ui-border-thickness) solid var(--ui-border-color);
+  margin: 3px 0 0 10px;
+  padding: 0 0 0 10px;
+  display: inline-block;
+}
+
+.header-menu {
+  color: #000;
+  float: right;
+  padding: 4px 0;
+  font-size: 13px;
+  margin-top: 13px;
+  font-weight: 400;
+  line-height: 18px;
+  text-decoration: none;
+  margin-right: 10px;
+}
+
+.entry-header.header-big .header-menu {
+  margin-right: 0;
+}
+
+.header-menu .research-use {
+  float: left;
+  font-size: 16px;
+  font-weight: 700;
+  color: #000;
+  margin-right: 1rem;
+  margin-left: 30px;
+  cursor: pointer;
+}
+
+.btn-study {
+  margin-left: 10px;
+  margin-top: -10px;
+  width: 120px;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  font-size: 20px;
+  border-radius: 20px;
+  color: #fff;
+  background-color: #474747;
+  border: 2px solid #474747;
+  cursor: pointer;
+}
+
+.notification-bar {
+  display: none;
+  position: absolute;
+  height: 20px;
+  line-height: 20px;
+  width: 100%;
+  background-color: #91b9cd;
+  color: #000;
+  font-weight: bold;
+  text-align: center;
+}
+
+.nav {
+  color: black;
+}
+
+.research-use:hover {
+  color: #33A795;
+}
+
+@media only screen and (max-width: 768px) {
+  .entry-header, .entry-header.header-big {
+    padding: 30px 15px 10px 15px;
+  }
+  .entry-header.header-big .header-logo-image {
+    margin: 0 10px 0 0;
+    width: 25px;
+    height: 25px;
+  }
+  .entry-header.header-big .header-logo-text {
+    width: 40%;
+  }
+  /* Toggle Notification Bar */
+  .notification-bar {
+    display: block;
+  }
+  .header-menu .research-use {
+    display: none;
+  }
+}

@@ -1,0 +1,54 @@
+#viewer {
+  margin-top: 100px;
+  background-color: #111;
+  width: 100%;
+}
+
+.loadingTextDiv {
+  color: var(--text-secondary-color);
+  font-size: 30px;
+}
+
+.rep {
+  height: 135px;
+  width: 210px;
+  color: #33A795;
+  background-color: black;
+  border: 1px solid #33A795;
+  font-size: 20px;
+  border-radius: 12px;
+  margin-top: 20px;
+  margin-left: 43px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.rep:hover {
+  background-color: black;
+  color: #33A795;
+}
+
+.print {
+  background-color: black;
+}
+
+.report {
+  background-color: #fff;
+  height: 100%;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: -1;
+}
+
+.titre {
+  display: block;
+}
+
+h2 {
+  text-align: center;
+  color: brown;
+  font-size: 30px;
+  margin-bottom: 50px;
+}
