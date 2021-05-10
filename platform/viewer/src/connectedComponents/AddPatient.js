@@ -19,7 +19,7 @@ class AddPatient extends Component {
       imageList:null,
       taille:'Choose a Dicom Files',
       messageSucces:null,
-      messageAdded:null
+      messageError:null
 
     };
 
@@ -73,12 +73,12 @@ handleChangeFile =e =>{
         for (let i = 0; i < this.state.imageList.length; i++) {
         formData.append(`files[${i}]`,this.state.imageList[i])
         }
-
+        const  taille=this.state.imageList.length;
         console.log('files : ', this.state.imageList)
         axios.post('http://localhost:5985/studies',formData, {
           headers:{
             'Content-Type':'multipart/form-data; type=application/dicom; boundary=--594b1491-fdae-4585-9b48-4d7cd999edb3',
-            'Content-Length':this.state.imageList
+            'Content-Length':taille || 0
 
           }
         })
@@ -90,7 +90,11 @@ handleChangeFile =e =>{
               messageSucces:res.data,
 
             })
-         } );
+
+         } ).catch(err => { this.setState({
+              messageError:err.message,
+
+            }) });
 
  }
 
@@ -142,7 +146,9 @@ handleChangeFile =e =>{
 
      {this.state.messageSucces ? (<div className='succes'>
             Patient added successfully
-    </div>) : (null)}
+    </div>) : ( this.state.messageError ? (<div className='error'>
+            {this.state.messageError }
+    </div>):(null))}
               <div className="hrl"></div>
              <div className="footer-login ">
 
