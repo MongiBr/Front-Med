@@ -142,9 +142,7 @@ handleChangeFile =e =>{
 
      {this.state.messageSucces ? (<div className='succes'>
             Patient added successfully
-    </div>) : (<div className='error'>
-            Please check your data
-  </div>)}
+    </div>) : (null)}
               <div className="hrl"></div>
              <div className="footer-login ">
 
