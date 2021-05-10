@@ -17,7 +17,7 @@ class AddPatient extends Component {
   state = {
 
       imageList:null,
-      taille:'Choose a Dicom Files',
+      taille:'',
       messageSucces:null,
       messageError:null
 
