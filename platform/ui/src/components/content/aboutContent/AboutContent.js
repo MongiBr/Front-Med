@@ -14,31 +14,22 @@ const AboutContent = () => {
   const itemsPreset = () => {
     return [
       {
-        name: t('Repository URL'),
-        value: 'https://github.com/OHIF/Viewers/',
-        link: 'https://github.com/OHIF/Viewers/',
+        name: t('MEDzone Repository URL'),
+        value: 'https://github.com/mongibr',
+        link: 'https://github.com/MongiBr/Front-Med',
       },
       {
-        name: t('Latest Master Commits'),
-        value: 'https://github.com/OHIF/Viewers/commits/master',
-        link: 'https://github.com/OHIF/Viewers/commits/master',
+        name: t('Created by'),
+        value: 'Strivers Team (Students)',
+
       },
       {
-        name: 'Version Number',
-        value: process.env.VERSION_NUMBER,
+        name: t('Copyright'),
+        value: 'All copyright 2021 © reserved OHIF & Strivers ',
+
       },
-      {
-        name: t('Build Number'),
-        value: process.env.BUILD_NUM,
-      },
-      {
-        name: t('Browser'),
-        value: `${capitalize(name)} ${version}`,
-      },
-      {
-        name: t('OS'),
-        value: os,
-      },
+
+
     ];
   };
 
@@ -59,43 +50,10 @@ const AboutContent = () => {
 
   return (
     <div className="AboutContent" data-cy="about-modal">
-      <div className="btn-group">
-        <a
-          className="btn btn-default"
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://groups.google.com/forum/#!forum/cornerstone-platform"
-        >
-          {t('Visit the forum')}
-        </a>
-        {` `}
-        <a
-          className="btn btn-default"
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://github.com/OHIF/Viewers/issues/new/choose"
-        >
-          {t('Report an issue')}
-        </a>
-        {` `}
-        <a
-          className="btn btn-default"
-          target="_blank"
-          rel="noopener noreferrer"
-          href="http://ohif.org"
-        >
-          {t('More details')}
-        </a>
-      </div>
-      <div>
-        <h3>{t('Version Information')}</h3>
+           <div>
+
         <table className="table table-responsive">
-          <thead>
-            <tr>
-              <th>{t('Name')}</th>
-              <th>{t('Value')}</th>
-            </tr>
-          </thead>
+
           <tbody>{itemsPreset().map(item => renderTableRow(item))}</tbody>
         </table>
       </div>

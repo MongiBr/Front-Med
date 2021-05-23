@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import { withRouter  } from "react-router-dom";
 import './auth.css'
+import ConnectedHeader from './ConnectedHeader';
 
 class AuthForgot extends Component {
 
@@ -10,7 +11,7 @@ class AuthForgot extends Component {
   }
 
     render() {
-        return <div className="container" ><div className="card-items">
+        return <> <ConnectedHeader/> <div className="container" ><div className="card-items">
 
             <div className="card-forgot">
         <div className="block">
@@ -38,7 +39,7 @@ class AuthForgot extends Component {
              <div className="hrl"></div>
              <div className="align">
              <div className="create-account">
-             <span onClick={() => this.nextPath('/')}>Log In</span>
+             <span className='log' onClick={() => this.nextPath('/')}>Log In</span>
 
              </div>
              <div className="create-account">
@@ -48,7 +49,7 @@ class AuthForgot extends Component {
              </div>
              </div>
 
-             </div></div>;
+             </div></div></>;
 
     }
 }

@@ -1,20 +1,22 @@
 import React from 'react';
 import './NotFound.css';
+import image from './found.png'
 import { Link } from 'react-router-dom';
 import { useAppContext } from '../context/AppContext';
 
-export default function NotFound({ message = 'Sorry, this page does not exist.', showGoBackButton = true }) {
-  
+export default function NotFound({ message = '404 | Page not found ', showGoBackButton = true }) {
+
   const context = useAppContext();
-  
+
   return (
     <div className={'not-found'}>
       <div>
-        <h4>{message}</h4>
+        <img className='image' src={image} width='600px' height='450px'></img>
+
         {showGoBackButton && context.appConfig.showStudyList && (
-          <h5>
-            <Link to={'/'}>Go back to the Study List</Link>
-          </h5>
+          <div className='alg'>
+            <center><Link className='hrf' to={'/'}>Go back to home page or login</Link></center>
+          </div>
         )}
       </div>
     </div>

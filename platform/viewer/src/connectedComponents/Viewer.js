@@ -249,19 +249,8 @@ class Viewer extends Component {
                 <AppContext.Consumer>
                   {appContext => (
                     <ConnectedHeader
-                      linkText={
-                        appContext.appConfig.showStudyList
-                          ? 'Study List'
-                          : undefined
-                      }
-                      linkPath={
-                        appContext.appConfig.showStudyList ? '/' : undefined
-                      }
-                      userManager={userManager}
                     >
-                      {whiteLabeling &&
-                        whiteLabeling.createLogoComponentFn &&
-                        whiteLabeling.createLogoComponentFn(React)}
+
                     </ConnectedHeader>
                   )}
                 </AppContext.Consumer>

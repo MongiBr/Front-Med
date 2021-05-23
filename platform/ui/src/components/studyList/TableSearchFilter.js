@@ -78,7 +78,7 @@ function TableSearchFilter(props) {
   return translationsAreReady
     ? meta.map((field, i) => {
         const { displayText, fieldName, inputType } = field;
-        const isSortField = sortFieldName === fieldName;
+        const isSortField = sortFieldName.includes(fieldName);
         const sortIcon = isSortField ? sortIconForSortField : sortIcons[0];
 
         return (

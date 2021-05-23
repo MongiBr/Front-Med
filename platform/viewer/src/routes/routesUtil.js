@@ -68,6 +68,11 @@ const AuthForgot = asyncComponent(() =>
     )
 );
 
+
+const email=localStorage.getItem('email');
+
+const isAuth = email?true:false;
+
 const reload = () => window.location.reload();
 
 const ROUTES_DEF = {
@@ -75,14 +80,23 @@ const ROUTES_DEF = {
         viewer: {
             path: '/viewer/:studyInstanceUIDs',
             component: ViewerRouting,
+             condition: appConfig => {
+                return isAuth
+            },
         },
         auth: {
             path: '/',
-            component: Auth,
+             component: Auth,
+             condition: appConfig => {
+                return !isAuth
+            },
         },
         addPatient: {
             path: '/add-patient',
             component: AddPatient,
+             condition: appConfig => {
+                return isAuth
+            },
         },
         authsignup: {
             path: '/auth/signup',
@@ -95,12 +109,15 @@ const ROUTES_DEF = {
         standaloneViewer: {
             path: '/viewer',
             component: StandaloneRouting,
+             condition: appConfig => {
+                return isAuth
+            },
         },
         list: {
-            path: ['/studylist'],
+            path: ['/','/studylist'],
             component: StudyListRouting,
             condition: appConfig => {
-                return appConfig.showStudyList;
+                return isAuth
             },
         },
         local: {

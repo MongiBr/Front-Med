@@ -57,6 +57,7 @@ import store from './store';
 import WhiteLabelingContext from './context/WhiteLabelingContext';
 import UserManagerContext from './context/UserManagerContext';
 import { AppProvider, useAppContext, CONTEXTS } from './context/AppContext';
+import ConnectedHeader from './connectedComponents/ConnectedHeader';
 
 /** ~~~~~~~~~~~~~ Application Setup */
 const commandsManagerConfig = {
@@ -187,6 +188,7 @@ class App extends Component {
                                 modal={OHIFModal}
                                 service={UIModalService}
                               >
+
                                 <OHIFStandaloneViewer
                                   userManager={this._userManager}
                                 />

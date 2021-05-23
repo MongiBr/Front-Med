@@ -1,11 +1,17 @@
 /* eslint-disable react/react-in-jsx-scope */
 import React, { Component } from 'react';
 import { withRouter  } from "react-router-dom";
+import avatar from './avatar.png'
 
 import axios from 'axios';
 import './auth.css'
+import { AuthContext } from '../context/authContext';
+import ConnectedHeader from './ConnectedHeader';
 
 class Auth extends Component {
+
+    static contextType= AuthContext;
+
 
    nextPath(path) {
     this.props.history.push(path);
@@ -21,7 +27,8 @@ class Auth extends Component {
         axios.post('https://serverdicom.herokuapp.com/users/login',data)
        .then((res)=> {console.log(res.data)
            if(res.data.status){
-               this.nextPath('/studyList')
+                localStorage.setItem('email',this.state.email);
+               window.location.reload(false);
            }
            if(!res.data.status){
                alert(res.data.message)
@@ -37,14 +44,17 @@ class Auth extends Component {
  }
 
     render() {
-        return <div className="container" ><div className="card-items">
+        return <> <ConnectedHeader/> <div className="container" ><div className="card-items">
 
             <div className="card-login">
+                <div className='avatar'>
+                <img src={avatar} className='av' width='100px' height='100px' />
+                </div>
         <div className="block">
             <div className="input-t">
-                <div className="top-login">
-                <label className="text"><center>Log In</center></label>
-                </div>
+
+                <label className="text">Login</label>
+
                 <div className="content">
                 <input type="text" className="form__field" placeholder="Email" name="email" onChange={this. handleChange}></input>
 
@@ -65,8 +75,8 @@ class Auth extends Component {
              <div className="hrl"></div>
              <div className="align">
              <div className="create-account">
-             <span onClick={() => this.nextPath('/auth/signup')}>Create an account</span>
-              <span onClick={() => this.nextPath('/auth/forgot')}>Forgot password?</span>
+             <span className='log' onClick={() => this.nextPath('/auth/signup')}>Create an account</span>
+              <span className='log' onClick={() => this.nextPath('/auth/forgot')}>Forgot password?</span>
              </div>
              <div className="create-account">
 
@@ -75,7 +85,7 @@ class Auth extends Component {
              </div>
              </div>
 
-             </div></div>;
+             </div></div></>;
 
     }
 }

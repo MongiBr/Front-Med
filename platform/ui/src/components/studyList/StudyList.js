@@ -8,7 +8,7 @@ import PropTypes from 'prop-types';
 import { StudyListLoadingText } from './StudyListLoadingText.js';
 import { useTranslation } from 'react-i18next';
 import {Icon} from '@ohif/ui'
-import background from './final.png'
+import background from './back4.png'
 import dicom from './dicom.png'
 import user from './user.png'
 import axios from 'axios';
@@ -334,7 +334,7 @@ const deleteRow =(StudyInstanceUID, e)=>{
          <img className='user' src={user} height='40' width='40'/>
       </div>
       <div className='align-t' >
-        <div className='study-text'> {PatientName || `(${t('Empty')})`}</div>
+        <div className='study-text'> {PatientName || `Anonyme`}</div>
 
  <div className='left-text'>
    <div className='txt'>Description</div>

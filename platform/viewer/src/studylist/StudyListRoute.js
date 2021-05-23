@@ -378,7 +378,7 @@ async function getStudyList(
   // Only the fields we use
   const mappedStudies = studies.map(study => {
     const PatientName =
-      typeof study.PatientName === 'string' ? study.PatientName : undefined;
+      typeof study.PatientName === 'string' ? study.PatientName : study.PatientName;
 
     return {
       AccessionNumber: study.AccessionNumber, // "1"

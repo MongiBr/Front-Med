@@ -2,8 +2,9 @@
   position: fixed;
   border: 0;
   border-radius: 6px;
-  background-color: #151a1f;
+  background-color: #fcfcfc;
 }
+
 .simpleDialog .header {
   border-bottom-width: 3px;
   border-bottom-style: solid;
@@ -50,8 +51,7 @@
   width: 100%;
 }
 
-.simpleDialog .header .closeIcon:after,
-.simpleDialog .header .closeIcon:before {
+.simpleDialog .header .closeIcon:after, .simpleDialog .header .closeIcon:before {
   content: ' ';
   display: block;
   height: 2px;
@@ -86,8 +86,7 @@
   color: #fff;
 }
 
-.simpleDialog .content .simpleDialogSelect,
-.simpleDialog .content .simpleDialogInput {
+.simpleDialog .content .simpleDialogSelect, .simpleDialog .content .simpleDialogInput {
   background-color: #fff;
   color: #000;
   border: 0;

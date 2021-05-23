@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, withRouter,NavLink, Route } from 'react-router-dom';
+import { Link, withRouter,NavLink, Route, useHistory } from 'react-router-dom';
 import { withTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
@@ -23,8 +23,10 @@ function Header(props) {
   } = props;
 
   const [options, setOptions] = useState([]);
+  const [optionsuser, setOptionsuser] = useState([]);
   const hasLink = linkText && linkPath;
-
+  const email=localStorage.getItem('email');
+  let history= useHistory();
   useEffect(() => {
     const optionsValue = [
       {
@@ -33,19 +35,25 @@ function Header(props) {
         onClick: () =>
           show({
             content: AboutContent,
-            title: t('OHIF Viewer - About'),
+            title: t('MEDzone - About'),
           }),
       },
       {
-        title: t('Preferences'),
-        icon: {
-          name: 'user',
-        },
+        title: t('Add Patient'),
+        icon: { name: 'soft-tissu' },
         onClick: () =>
-          show({
-            content: UserPreferences,
-            title: t('User Preferences'),
-          }),
+          history.push('/add-patient')
+      },
+
+    ];
+
+    const optionsValue2 = [
+
+      {
+        title: 'Logout',
+
+        onClick: () =>
+         logout()
       },
     ];
 
@@ -58,7 +66,16 @@ function Header(props) {
     }
 
     setOptions(optionsValue);
+    setOptionsuser(optionsValue2);
   }, [setOptions, show, t, user, userManager]);
+
+
+  function logout(){
+    localStorage.removeItem('email');
+    history.push('/')
+    window.location.reload(false);
+
+  }
 
   return (
     <>
@@ -74,16 +91,29 @@ function Header(props) {
 
         </div>
 
-        <div className="header-menu">
+       {email? <div className="header-menu">
 
         <NavLink to='/studylist' activeClassName="active" > <span className="research-use"> Home</span></NavLink>
           <NavLink to='/local'  activeClassName="active" ><span className="research-use">Local</span></NavLink>
-          {options.map(op=>(<span className="research-use" onClick={op.onClick} >{op.icon.name=='user'?(<Icon name={op.icon.name}/>):(null)} {op.title}</span>))}
 
-       <Route render={({ history}) => (
-           <button className='btn-study'onClick={() => { history.push('/add-patient') }} ><Icon className='icon' name='plus' />Patient</button>
-           )} />
-        </div>
+          {options.map(op=>(<span className="research-use" onClick={op.onClick} >{op.icon.name=='soft-tissue' ?(<Icon name={op.icon.name}/>):(null)} {op.title}</span>))}
+<span className="research-use" >
+<Icon name='user'/>
+{<Dropdown title={email} list={optionsuser} align="right" />}
+
+</span>
+
+{/*<span className="research-use" >
+<button className='btn-study' onClick={e=>history.push('/add-patient')}><Icon className='icon' name='plus'></Icon> Patient</button>
+  </span>*/}
+
+        </div> : <div className="header-menu">
+          <span className="research-use" onClick ={e=> history.push('/')}>
+
+you need to log in
+
+</span>
+          </div>}
       </div>
     </>
   );

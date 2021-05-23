@@ -4,6 +4,27 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  color: #474747;
+  margin-top: -100px;
+}
 
-  color: white;
+.msg {
+  font-size: 72px;
+}
+
+.image {
+  display: flex;
+  justify-content: center;
+}
+
+.hrf {
+  color: #E684C3;
+  font-weight: 30px;
+  font-size: 14px;
+  text-decoration: underline;
+}
+
+.alg {
+  margin-top: -165px;
+  margin-left: -450px;
 }

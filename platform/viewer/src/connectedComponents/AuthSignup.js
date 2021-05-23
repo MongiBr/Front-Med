@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { withRouter  } from "react-router-dom";
 import axios from 'axios';
 import './auth.css'
+import ConnectedHeader from './ConnectedHeader';
 
 class AuthSignup extends Component {
 
@@ -40,7 +41,7 @@ class AuthSignup extends Component {
 
 
     render() {
-        return <div className="container" ><div className="card-items">
+        return <> <ConnectedHeader/> <div className="container" ><div className="card-items">
 
             <div className="card-signup">
         <div className="block">
@@ -53,15 +54,15 @@ class AuthSignup extends Component {
                 <input type="text" className="form__field" placeholder="Last Name" name= "prenom" onChange={this. handleChange}></input>
                 <input type="email" className="form__field" placeholder="Email"name="email" onChange={this. handleChange}></input>
 
-                <input type="date" className="form__field" placeholder="Date"  ></input>
+
 
 
              <input type="password" className="form__field" placeholder="Password"name="password" onChange={this. handleChange}></input>
-              <input type="password" className="form__field" placeholder="Confirm Password"></input>
+
              </div>
              <div className="footer-login ">
 
-      
+
              <button className='btn-first' onClick={this.handleSubmit} >Sign up</button>
 
 
@@ -72,7 +73,7 @@ class AuthSignup extends Component {
              <div className="hrl"></div>
              <div className="align">
              <div className="create-account">
-             <span onClick={() => this.nextPath('/')}>Log In</span>
+             <span className='log' onClick={() => this.nextPath('/')}>I already have an account</span>
 
              </div>
              <div className="create-account">
@@ -82,7 +83,7 @@ class AuthSignup extends Component {
              </div>
              </div>
 
-             </div></div>;
+             </div></div></>;
 
     }
 }

@@ -16,6 +16,9 @@ import './variables.css';
 import './theme-tide.css';
 // Contexts
 import AppContext from './context/AppContext';
+import StudyListRoute from './studylist/StudyListRoute';
+import StudyListRouting from './studylist/StudyListRouting';
+import ConnectedStudyList from './studylist/ConnectedStudyList';
 const CallbackPage = asyncComponent(() =>
   retryImport(() => import(/* webpackChunkName: "CallbackPage" */ './routes/CallbackPage.js'))
 );
@@ -67,6 +70,7 @@ class OHIFStandaloneViewer extends Component {
             path="/silent-refresh.html"
             onEnter={RoutesUtil.reload}
           />
+
           <Route
             exact
             path="/logout-redirect"
@@ -179,6 +183,7 @@ class OHIFStandaloneViewer extends Component {
         </NProgress>
         <Route exact path="/silent-refresh.html" onEnter={RoutesUtil.reload} />
         <Route exact path="/logout-redirect.html" onEnter={RoutesUtil.reload} />
+
         {!noMatchingRoutes &&
           routes.map(({ path, Component }) => (
             <Route key={path} exact path={path}>
